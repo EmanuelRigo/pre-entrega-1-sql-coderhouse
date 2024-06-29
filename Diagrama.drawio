@@ -1,13 +1,13 @@
-<mxfile host="app.diagrams.net" modified="2024-06-29T19:48:15.394Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="qgh2QpbExxueFeZNrdJW" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-29T21:38:26.078Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="Gvzy03ruq7hm-DtlFRt_" version="24.6.4" type="github">
   <diagram name="Página-1" id="uxQamM1_208eMyhoLgmC">
-    <mxGraphModel dx="1504" dy="1699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1589" dy="1766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="vetR4PyFIzgfFQVkprIi-3" value="&lt;b&gt;PELICULA&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;id_pelicula&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;estreno&lt;/div&gt;&lt;div&gt;genero&lt;/div&gt;&lt;div&gt;id_oscarsFK&lt;/div&gt;&lt;div&gt;id_directorFK&lt;/div&gt;&lt;div&gt;id_actoresFK&lt;/div&gt;&lt;div&gt;ProductoraFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="vetR4PyFIzgfFQVkprIi-3" value="&lt;b&gt;PELICULA&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;id_pelicula&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;estreno&lt;/div&gt;&lt;div&gt;genero&lt;/div&gt;&lt;div&gt;id_oscarsFK&lt;/div&gt;&lt;div&gt;id_directorFK&lt;/div&gt;&lt;div&gt;id_actorFK&lt;/div&gt;&lt;div&gt;id_estudioFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="320" width="120" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="vetR4PyFIzgfFQVkprIi-4" value="&lt;b&gt;PRODUCTORA&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;peliculaFK&lt;/div&gt;&lt;div&gt;inicio de activades&lt;/div&gt;&lt;div&gt;vigente&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="vetR4PyFIzgfFQVkprIi-4" value="&lt;b&gt;ESTUDIO&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;id_estudio&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;peliculaFK&lt;/div&gt;&lt;div&gt;inicio de activades&lt;/div&gt;&lt;div&gt;vigente&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="680" width="120" height="160" as="geometry" />
         </mxCell>
         <mxCell id="vetR4PyFIzgfFQVkprIi-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="1" source="vetR4PyFIzgfFQVkprIi-5" target="vetR4PyFIzgfFQVkprIi-3">
@@ -19,7 +19,7 @@
         <mxCell id="vetR4PyFIzgfFQVkprIi-5" value="producida" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="340" y="540" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="vetR4PyFIzgfFQVkprIi-8" value="&lt;b&gt;ACTOR/ACTRIZ&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha nacimiento&lt;/div&gt;&lt;div&gt;peliculasFK&lt;/div&gt;&lt;div&gt;OscarsFK&lt;/div&gt;&lt;div&gt;directorFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="vetR4PyFIzgfFQVkprIi-8" value="&lt;b&gt;ACTOR/ACTRIZ&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;id_actor&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;apellido&lt;/div&gt;&lt;div&gt;fecha nacimiento&lt;/div&gt;&lt;div&gt;peliculasFK&lt;/div&gt;&lt;div&gt;OscarsFK&lt;/div&gt;&lt;div&gt;directorFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="640" y="320" width="120" height="160" as="geometry" />
         </mxCell>
         <mxCell id="vetR4PyFIzgfFQVkprIi-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="1" source="vetR4PyFIzgfFQVkprIi-9" target="vetR4PyFIzgfFQVkprIi-3">
@@ -125,7 +125,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="vetR4PyFIzgfFQVkprIi-26" value="&lt;b&gt;DIRECTOR&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha de nacimiento&lt;/div&gt;&lt;div&gt;peliculaFK&lt;/div&gt;&lt;div&gt;OscarsFK&lt;/div&gt;&lt;div&gt;id_actoresFK&lt;/div&gt;&lt;div&gt;id_productoraFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="vetR4PyFIzgfFQVkprIi-26" value="&lt;b&gt;DIRECTOR&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;nombre&lt;/div&gt;&lt;div&gt;fecha de nacimiento&lt;/div&gt;&lt;div&gt;peliculaFK&lt;/div&gt;&lt;div&gt;OscarsFK&lt;/div&gt;&lt;div&gt;id_actoresFK&lt;/div&gt;&lt;div&gt;id_estudio&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry y="320" width="120" height="160" as="geometry" />
         </mxCell>
         <mxCell id="vetR4PyFIzgfFQVkprIi-28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="1" source="vetR4PyFIzgfFQVkprIi-27" target="vetR4PyFIzgfFQVkprIi-3">
