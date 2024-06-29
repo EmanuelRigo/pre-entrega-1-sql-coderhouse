@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" modified="2024-06-29T18:44:43.927Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="-FwhWayHjL_x9N085GGe" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-29T18:57:00.399Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="fPix2oOrnr8Yq8EK6dPR" version="24.6.4" type="github">
   <diagram name="Página-1" id="uxQamM1_208eMyhoLgmC">
     <mxGraphModel dx="1504" dy="1699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="vetR4PyFIzgfFQVkprIi-3" value="&lt;b&gt;PELICULA&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;estreno&lt;/div&gt;&lt;div&gt;genero&lt;/div&gt;&lt;div&gt;OscarsFK&lt;/div&gt;&lt;div&gt;directorFK&lt;/div&gt;&lt;div&gt;actoresprincipalesFK&lt;/div&gt;&lt;div&gt;ProductoraFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="vetR4PyFIzgfFQVkprIi-3" value="&lt;b&gt;PELICULA&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;id_pelicula&lt;/div&gt;&lt;div&gt;estreno&lt;/div&gt;&lt;div&gt;genero&lt;/div&gt;&lt;div&gt;OscarsFK&lt;/div&gt;&lt;div&gt;directorFK&lt;/div&gt;&lt;div&gt;actoresprincipalesFK&lt;/div&gt;&lt;div&gt;ProductoraFK&lt;/div&gt;&lt;div&gt;paisFK&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="320" width="120" height="160" as="geometry" />
         </mxCell>
         <mxCell id="vetR4PyFIzgfFQVkprIi-4" value="&lt;b&gt;PRODUCTORA&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;peliculaFK&lt;/div&gt;&lt;div&gt;inicio de activades&lt;/div&gt;&lt;div&gt;vigente&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
