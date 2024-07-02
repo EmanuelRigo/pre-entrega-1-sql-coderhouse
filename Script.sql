@@ -12,14 +12,14 @@ USE peliculas_coderhouse;
 CREATE TABLE 
 	PELICULA (
 		id_pelicula INT PRIMARY KEY AUTO_INCREMENT,
-		nombre VARCHAR(150) NOT NULL,
-		estreno DATETIME DEFAULT NULL,
-		genero VARCHAR(60) DEFAULT 'DESCONOCIDO',
+		nombre VARCHAR(150) NOT NULL COMMENT 'nombre de la pelicula',
+		estreno DATETIME DEFAULT NULL COMMENT 'fecha de estreno de la pelicula',
+		genero VARCHAR(60) DEFAULT 'DESCONOCIDO' COMMENT 'genero de la pelicula',
 		id_director INT NOT NULL,
 		id_actor INT NOT NULL,
-		id_oscar INT,
-		id_estudio INT NOT NULL,
-		id_pais INT NOT NULL
+		id_oscar INT COMMENT 'puede tener varios oscars una pelicula',
+		id_estudio INT NOT NULL COMMENT 'puede estar producida por varios estudios',
+		id_pais INT NOT NULL COMMENT 'supongamos que una pelicula solo se filma en un solo pais'
 		);
 
 -- TABLA ESTUDIO
@@ -27,8 +27,8 @@ CREATE TABLE
 	ESTUDIO (
 		id_estudio INT PRIMARY KEY AUTO_INCREMENT,
 		nombre VARCHAR(200) NOT NULL,
-		inicio_de_actividades DATETIME DEFAULT NULL,
-		vigente BOOLEAN DEFAULT TRUE NOT NULL
+		inicio_de_actividades DATETIME DEFAULT NULL COMMENT 'año en que fundo el estudio',
+		vigente BOOLEAN DEFAULT TRUE NOT NULL COMMENT 'tenemos en cuenta si el estudio sigue en funcionamiento'
 		);
 
 -- TABLA ACTOR/ACTRIZ
@@ -39,7 +39,7 @@ CREATE TABLE
 		apellido VARCHAR(100) NOT NULL,
 		nacimiento DATETIME,
 		id_pelicula INT NOT NULL,
-		id_oscar INT,
+		id_oscar INT COMMENT 'un actor o actriz tambien puede tener un oscar de mejor director, pero no de mejor pelicula',
 		id_pais INT
 	);
 	
@@ -52,14 +52,15 @@ CREATE  TABLE
 		nacimiento DATETIME,
 		id_pelicula INT,
 		id_estudio INT,
-		id_pais INT
+		id_pais INT,
+		id_oscar INT COMMENT 'un director puede tener un oscar a mejor actor'
 	);
 	
 -- TABLA OSCAR
 CREATE TABLE 
 	OSCAR(
 		id_oscar INT PRIMARY KEY AUTO_INCREMENT,
-		edicion DATETIME NOT NULL,
+		edicion DATETIME NOT NULL COMMENT 'año en que se entrego el oscar',
 		id_pelicula INT NOT NULL,
 		tipo ENUM("mejor_pelicula","mejor_director","mejor_actor","mejor_actriz") NOT NULL
 	);
@@ -103,7 +104,9 @@ ALTER TABLE director
 	ADD	CONSTRAINT fk_dire_est FOREIGN KEY
 	(id_estudio) REFERENCES estudio (id_estudio),
 	ADD CONSTRAINT fk_dire_pais FOREIGN KEY
-	(id_pais) REFERENCES pais (id_pais);
+	(id_pais) REFERENCES pais (id_pais),
+	ADD CONSTRAINT fk_dire_oscar FOREIGN KEY
+	(id_oscar) REFERENCES oscar (id_oscar);
 
 ALTER TABLE oscar
 	ADD CONSTRAINT fk_osc_pel FOREIGN KEY 
