@@ -2,6 +2,9 @@
 
 Este archivo SQL crea y estructura una base de datos llamada `peliculas_coderhouse` para almacenar información sobre películas, directores, actores, estudios, premios Oscar y países. A continuación se detallan las tablas, sus campos y las relaciones entre ellas.
 
+en el diagrama simplificado estan conectados los oscar de mejor_actor con directores o mejor_director con actores por si sucede que
+un actor dirija una pelicula o viceversa
+
 ## Tablas
 
 ### Tabla `PELICULA`
