@@ -65,21 +65,21 @@ CREATE TABLE
 		nombre VARCHAR (100)
 	);
 
--- TABLA DIRECTOR_PELICULA para relación muchos a muchos entre DIRECTOR y PELICULA
+-- TABLA DIRECTOR_PELICULA para relacion muchos a muchos entre DIRECTOR y PELICULA
 CREATE TABLE DIRECTOR_PELICULA (
     id_director INT,
     id_pelicula INT,
     PRIMARY KEY (id_director, id_pelicula)
 );
 
--- TABLA ACTOR_PELICULA para relación muchos a muchos entre ACTOR_ACTRIZ y PELICULA
+-- TABLA ACTOR_PELICULA para relacion muchos a muchos entre ACTOR_ACTRIZ y PELICULA
 CREATE TABLE ACTOR_PELICULA (
     id_actor INT,
     id_pelicula INT,
     PRIMARY KEY (id_actor, id_pelicula)
 );
 
--- INSERTAR DATOS DE EJEMPLO (Ejemplo básico para demostración)
+-- INSERTAR DATOS
 INSERT INTO ESTUDIO (nombre, inicio_de_actividades, vigente)
 VALUES
     ('Warner Bros. Pictures', '1923-04-04', TRUE),
@@ -110,7 +110,7 @@ VALUES
     ('Estados Unidos'),
     ('Italia');
 
--- HACEMOS LAS FOREIGN KEYS DESPUÉS DE INSERTAR DATOS
+
 ALTER TABLE PELICULA
 	ADD CONSTRAINT fk_pelicula_oscar FOREIGN KEY 
 	(id_oscar) REFERENCES oscar (id_oscar),
@@ -129,7 +129,7 @@ ALTER TABLE DIRECTOR
 	ADD CONSTRAINT fk_dire_oscar FOREIGN KEY
 	(id_oscar) REFERENCES oscar (id_oscar);
 
--- INSERTAMOS LAS RELACIONES MUCHOS A MUCHOS DESPUÉS DE CREAR LAS FOREIGN KEYS
+
 INSERT INTO DIRECTOR_PELICULA (id_director, id_pelicula)
 VALUES
     (1, 1),
@@ -140,5 +140,7 @@ VALUES
     (1, 1),
     (2, 2);
 
--- CONSULTA DE EJEMPLO
+
 SELECT * FROM PELICULA;
+
+SELECT * FROM actor_actriz;
