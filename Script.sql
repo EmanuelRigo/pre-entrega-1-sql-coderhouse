@@ -1,4 +1,3 @@
-
 -- BORRAMOS DB POR SI EXISTE 
 DROP DATABASE IF EXISTS peliculas_coderhouse;
 
@@ -15,8 +14,6 @@ CREATE TABLE
 		nombre VARCHAR(150) NOT NULL COMMENT 'nombre de la pelicula',
 		estreno DATETIME DEFAULT NULL COMMENT 'fecha de estreno de la pelicula',
 		genero VARCHAR(60) DEFAULT 'DESCONOCIDO' COMMENT 'genero de la pelicula',
-		id_director INT NOT NULL,
-		id_actor INT NOT NULL,
 		id_oscar INT COMMENT 'puede tener varios oscars una pelicula',
 		id_estudio INT NOT NULL COMMENT 'puede estar producida por varios estudios',
 		id_pais INT NOT NULL COMMENT 'supongamos que una pelicula solo se filma en un solo pais'
@@ -38,21 +35,17 @@ CREATE TABLE
 		nombre VARCHAR(50) NOT NULL,
 		apellido VARCHAR(100) NOT NULL,
 		nacimiento DATETIME,
-		id_pelicula INT NOT NULL,
 		id_oscar INT COMMENT 'un actor o actriz tambien puede tener un oscar de mejor director, pero no de mejor pelicula',
 		id_pais INT
 	);
 	
 -- TABLA DIRECTOR
-CREATE  TABLE 
+CREATE TABLE 
 	DIRECTOR (
 		id_director INT PRIMARY KEY AUTO_INCREMENT,
 		nombre VARCHAR (100),
 		apellido VARCHAR (100),
 		nacimiento DATETIME,
-		id_pelicula INT,
-		id_estudio INT,
-		id_pais INT,
 		id_oscar INT COMMENT 'un director puede tener un oscar a mejor actor'
 	);
 	
@@ -69,20 +62,56 @@ CREATE TABLE
 CREATE TABLE 
 	PAIS (
 		id_pais INT PRIMARY KEY AUTO_INCREMENT,
-		nombre VARCHAR (100),
-		id_pelicula INT,
-		id_actor INT,
-		id_director INT,
-		id_oscar INT
+		nombre VARCHAR (100)
 	);
-	
 
--- HACEMOS LAS FOREIGN KEYS
+-- TABLA DIRECTOR_PELICULA para relación muchos a muchos entre DIRECTOR y PELICULA
+CREATE TABLE DIRECTOR_PELICULA (
+    id_director INT,
+    id_pelicula INT,
+    PRIMARY KEY (id_director, id_pelicula)
+);
+
+-- TABLA ACTOR_PELICULA para relación muchos a muchos entre ACTOR_ACTRIZ y PELICULA
+CREATE TABLE ACTOR_PELICULA (
+    id_actor INT,
+    id_pelicula INT,
+    PRIMARY KEY (id_actor, id_pelicula)
+);
+
+-- INSERTAR DATOS DE EJEMPLO (Ejemplo básico para demostración)
+INSERT INTO ESTUDIO (nombre, inicio_de_actividades, vigente)
+VALUES
+    ('Warner Bros. Pictures', '1923-04-04', TRUE),
+    ('Paramount Pictures', '1912-05-08', TRUE);
+
+INSERT INTO PELICULA (nombre, estreno, genero, id_oscar, id_estudio, id_pais)
+VALUES
+    ('Inception', '2010-07-16', 'Ciencia ficción', NULL, 1, 1),
+    ('The Godfather', '1972-03-24', 'Crimen', NULL, 2, 2);
+
+INSERT INTO ACTOR_ACTRIZ (nombre, apellido, nacimiento, id_oscar, id_pais)
+VALUES
+    ('Leonardo', 'DiCaprio', '1974-11-11', 1, 1),
+    ('Marlon', 'Brando', '1924-04-03', 2, 2);
+
+INSERT INTO DIRECTOR (nombre, apellido, nacimiento, id_oscar)
+VALUES
+    ('Christopher', 'Nolan', '1970-07-30', 1),
+    ('Francis Ford', 'Coppola', '1939-04-07', 2);
+
+INSERT INTO OSCAR (edicion, id_pelicula, tipo)
+VALUES
+    ('2010-01-01', 1, 'mejor_pelicula'),
+    ('1973-01-01', 2, 'mejor_pelicula');
+
+INSERT INTO PAIS (nombre)
+VALUES
+    ('Estados Unidos'),
+    ('Italia');
+
+-- HACEMOS LAS FOREIGN KEYS DESPUÉS DE INSERTAR DATOS
 ALTER TABLE PELICULA
-	ADD CONSTRAINT fk_pelicula_director FOREIGN KEY 
-	(id_director) REFERENCES director (id_director),
-	ADD CONSTRAINT fk_pelicula_actor FOREIGN KEY 
-	(id_actor) REFERENCES actor_actriz (id_actor),
 	ADD CONSTRAINT fk_pelicula_oscar FOREIGN KEY 
 	(id_oscar) REFERENCES oscar (id_oscar),
 	ADD CONSTRAINT fk_pelicula_estudio FOREIGN KEY 
@@ -90,37 +119,26 @@ ALTER TABLE PELICULA
 	ADD CONSTRAINT fk_pelicula_pais FOREIGN KEY
 	(id_pais) REFERENCES pais (id_pais);
 
-ALTER TABLE actor_actriz 
-	ADD CONSTRAINT fk_act_pelicula FOREIGN KEY
-	(id_pelicula) REFERENCES pelicula (id_pelicula),
+ALTER TABLE ACTOR_ACTRIZ 
 	ADD CONSTRAINT fk_act_oscar FOREIGN KEY
 	(id_oscar) REFERENCES oscar (id_oscar),
 	ADD CONSTRAINT fk_act_pais FOREIGN KEY 
 	(id_pais) REFERENCES pais (id_pais);
 
-ALTER TABLE director 
-	ADD CONSTRAINT fk_dire_pel FOREIGN KEY 
-	(id_pelicula) REFERENCES pelicula (id_pelicula),
-	ADD	CONSTRAINT fk_dire_est FOREIGN KEY
-	(id_estudio) REFERENCES estudio (id_estudio),
-	ADD CONSTRAINT fk_dire_pais FOREIGN KEY
-	(id_pais) REFERENCES pais (id_pais),
+ALTER TABLE DIRECTOR 
 	ADD CONSTRAINT fk_dire_oscar FOREIGN KEY
 	(id_oscar) REFERENCES oscar (id_oscar);
 
-ALTER TABLE oscar
-	ADD CONSTRAINT fk_osc_pel FOREIGN KEY 
-	(id_pelicula) REFERENCES pelicula (id_pelicula);
+-- INSERTAMOS LAS RELACIONES MUCHOS A MUCHOS DESPUÉS DE CREAR LAS FOREIGN KEYS
+INSERT INTO DIRECTOR_PELICULA (id_director, id_pelicula)
+VALUES
+    (1, 1),
+    (2, 2);
 
-ALTER TABLE pais 
-	ADD CONSTRAINT fk_pais_peli FOREIGN KEY 
-	(id_pelicula) REFERENCES pelicula(id_pelicula),
-	ADD CONSTRAINT fk_pais_act FOREIGN KEY 
-	(id_actor) REFERENCES actor_actriz (id_actor),
-	ADD CONSTRAINT fk_pais_dir FOREIGN KEY
-	(id_director) REFERENCES director (id_director),
-	ADD CONSTRAINT fk_pais_osc FOREIGN KEY
-	(id_oscar) REFERENCES oscar (id_oscar);
+INSERT INTO ACTOR_PELICULA (id_actor, id_pelicula)
+VALUES
+    (1, 1),
+    (2, 2);
 
-
-SELECT * FROM pelicula 
+-- CONSULTA DE EJEMPLO
+SELECT * FROM PELICULA;
