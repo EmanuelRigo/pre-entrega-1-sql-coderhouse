@@ -129,6 +129,19 @@ ALTER TABLE DIRECTOR
 	ADD CONSTRAINT fk_dire_oscar FOREIGN KEY
 	(id_oscar) REFERENCES oscar (id_oscar);
 
+ALTER TABLE director_pelicula 
+	ADD CONSTRAINT fk_dir FOREIGN KEY
+	(id_director) REFERENCES DIRECTOR (id_director),
+	ADD CONSTRAINT fk_pel FOREIGN KEY 
+	(id_pelicula) REFERENCES pelicula (id_pelicula);
+
+ALTER TABLE actor_pelicula
+	ADD CONSTRAINT fk_act FOREIGN KEY
+	(id_actor) REFERENCES ACTOR_ACTRIZ (id_actor),
+	ADD CONSTRAINT fk_peli FOREIGN KEY 
+	(id_pelicula) REFERENCES pelicula (id_pelicula);
+
+
 
 INSERT INTO DIRECTOR_PELICULA (id_director, id_pelicula)
 VALUES
