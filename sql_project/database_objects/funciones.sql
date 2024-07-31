@@ -67,4 +67,29 @@ DELIMITER ;
 -- funcion para saber cual es el estudio con mejores peliculas de un año
 DROP FUNCTION IF EXISTS mejor_estudio;
 
+CREATE FUNCTION mejor_estudio()
+RETURNS VARCHAR(200)
+DETERMINISTIC
+BEGIN
+    DECLARE estudio_nombre VARCHAR(200);
+    DECLARE conteo_maximo INT;
+
+    SELECT e.nombre, COUNT(*) AS cantidad_oscars
+    INTO estudio_nombre, conteo_maximo
+    FROM ESTUDIO e
+    JOIN PELICULA p ON e.id_estudio = p.id_estudio
+    WHERE p.id_oscar IS NOT NULL
+    GROUP BY e.id_estudio
+    ORDER BY cantidad_oscars DESC
+    LIMIT 1;
+
+    IF conteo_maximo IS NULL THEN
+        RETURN 'No hay estudios con Oscars a mejor pelicula.';
+    ELSE 
+        RETURN estudio_nombre;
+    END IF;
+END //
+
+DELIMITER ;
+
 
