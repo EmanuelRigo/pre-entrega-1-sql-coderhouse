@@ -81,6 +81,15 @@ CREATE TABLE ACTOR_PELICULA (
     PRIMARY KEY (id_actor, id_pelicula)
 );
 
+CREATE TABLE MEJORES_ACTORES (
+    id_actor INT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    nacimiento DATETIME,
+    id_pelicula INT NOT NULL,
+    id_oscar INT NOT NULL,
+    fecha_de_oscar DATETIME
+)
 
 ALTER TABLE PELICULA
 	ADD CONSTRAINT fk_pelicula_oscar FOREIGN KEY 
