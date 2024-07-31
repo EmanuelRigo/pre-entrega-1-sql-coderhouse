@@ -34,6 +34,36 @@ DELIMITER ;
 -- funcion para saber el actor que mas peliculas hiso en un año
 DROP FUNCTION IF EXISTS actor_mas_peliculas;
 
+DELIMITER //
+
+CREATE FUNCTION actor_mas_peliculas(year INT) 
+RETURNS VARCHAR(200)
+DETERMINISTIC
+BEGIN
+    DECLARE actor_nombre VARCHAR(100);
+    DECLARE actor_apellido VARCHAR(100);
+    DECLARE max_count INT;
+
+    SELECT a.nombre, a.apellido, COUNT(*) AS cantidad_peliculas
+    INTO actor_nombre, actor_apellido, max_count
+    FROM ACTOR_ACTRIZ a
+    JOIN ACTOR_PELICULA ap ON a.id_actor = ap.id_actor
+    JOIN PELICULA p ON ap.id_pelicula = p.id_pelicula
+    -- aca uso el parametro de la funcion
+    WHERE YEAR(p.estreno) = year
+    GROUP BY a.id_actor
+    ORDER BY cantidad_peliculas DESC
+    LIMIT 1;
+
+    IF max_count IS NULL THEN
+        RETURN 'No hay peliculas este año.';
+    ELSE
+        RETURN CONCAT(actor_nombre, ' ', actor_apellido);
+    END IF;
+END //
+
+DELIMITER ;
+
 -- funcion para saber cual es el estudio con mejores peliculas de un año
 DROP FUNCTION IF EXISTS mejor_estudio;
 
