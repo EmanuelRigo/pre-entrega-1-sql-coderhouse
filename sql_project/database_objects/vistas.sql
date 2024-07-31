@@ -15,9 +15,17 @@ CREATE OR REPLACE VIEW view_actores_90 AS
 -- vista de las peliculas con mas Oscars
 
 CREATE OR REPLACE VIEW view_peliculas_con_mas_oscars AS
-SELECT p.id_pelicula, p.nombre, COUNT(o.id_oscar) AS total_oscars
-FROM PELICULA p
-JOIN OSCAR o ON p.id_pelicula = o.id_pelicula
-GROUP BY p.id_pelicula, p.nombre
-ORDER BY total_oscars DESC
-LIMIT 10;
+    SELECT p.id_pelicula, p.nombre, COUNT(o.id_oscar) AS total_oscars
+    FROM PELICULA p
+    JOIN OSCAR o ON p.id_pelicula = o.id_pelicula
+    GROUP BY p.id_pelicula, p.nombre
+    ORDER BY total_oscars DESC
+    LIMIT 10;
+
+-- vista de peliculas por pais
+
+CREATE OR REPLACE VIEW peliculas_por_pais AS
+    SELECT p.cod_pais, COUNT(p.id_pelicula) AS total_peliculas
+    FROM PELICULA p
+    GROUP BY p.cod_pais
+    ORDER BY total_peliculas DESC;
