@@ -67,6 +67,8 @@ DELIMITER ;
 -- funcion para saber cual es el estudio con mejores peliculas de un año
 DROP FUNCTION IF EXISTS mejor_estudio;
 
+DELIMITER //
+
 CREATE FUNCTION mejor_estudio()
 RETURNS VARCHAR(200)
 DETERMINISTIC

@@ -1,6 +1,6 @@
 -- QUERIES PARA VERIFICAR LAS CREACIONES Y CHEQUEAR DE QUE FUE EXITOSA LA CREACION DE CADA UNA
 
-USE reservas_app;
+USE peliculas_coderhouse;
 
 SELECT 
     TABLE_NAME, 
@@ -76,3 +76,9 @@ ORDER BY
     EVENT_OBJECT_TABLE, 
     ACTION_TIMING, 
     EVENT_MANIPULATION;
+
+
+SELECT * FROM peliculas_por_pais;
+SELECT * FROM view_peliculas_con_mas_oscars;
+SELECT * FROM view_actores_90;
+SELECT * FROM top_5_peliculas;
