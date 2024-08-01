@@ -91,6 +91,6 @@ Las relaciones entre las tablas se establecen mediante claves foráneas (Foreign
 
 - `3`: Traer datos de los paises desde el csv, skipeando (nom, iso2 y phone_code) que no se utilizaran
 
-- `4`: Luego ingresar uno por uno a traves de queries en este orden. pelicula -> actores -> director -> oscars
+- `4`: Luego ingresar uno por uno a traves de queries en este orden las cuales estan en population.sql. pelicula -> actores -> director -> oscars
 
 - `5`: Hacer un check_db_objects.sql
