@@ -83,3 +83,14 @@ Las relaciones entre las tablas se establecen mediante claves foráneas (Foreign
 - La tabla `DIRECTOR` tiene relaciones con las tablas `PELICULA`, `ESTUDIO` y `PAIS` mediante las claves foráneas `id_pelicula`, `id_estudio` e `id_pais`, respectivamente.
 - La tabla `OSCAR` tiene una relación con la tabla `PELICULA` mediante la clave foránea `id_pelicula`.
 - La tabla `PAIS` tiene relaciones con las tablas `PELICULA`, `ACTOR_ACTRIZ`, `DIRECTOR` y `OSCAR` mediante las claves foráneas `id_pelicula`, `id_actor`, `id_director` e `id_oscar`, respectivamente.
+
+### Pasos a seguir para levantar la DB
+
+- `1`: Crear la estructura con database_structure.sql
+- `2`: Agregar el contenido de la carpeta database_objects, donde se encuentran las funciones, stored_procedures, triggers y vistas
+
+- `3`: Traer datos de los paises desde el csv, skipeando (nom, iso2 y phone_code) que no se utilizaran
+
+- `4`: Luego ingresar uno por uno a traves de queries en este orden. pelicula -> actores -> director -> oscars
+
+- `5`: Hacer un check_db_objects.sql
