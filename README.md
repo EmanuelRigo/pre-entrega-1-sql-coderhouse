@@ -94,3 +94,25 @@ Las relaciones entre las tablas se establecen mediante claves foráneas (Foreign
 - `4`: Luego ingresar uno por uno a traves de queries en este orden las cuales estan en population.sql. pelicula -> actores -> director -> oscars
 
 - `5`: Hacer un check_db_objects.sql
+
+### Vistas
+
+- `1`: vista de actores que tengan peliculas en los 90
+- `2`: vista de las peliculas con mas oscars
+- `3`: vista de los paises con mas peliculas
+
+### Funciones
+
+- `1`: funcion para saver el actor que mas peliculas tiene un año
+- `2`: funcion para saber cual es el estudio con mejores peliculas en un año
+
+### Stored procedures
+
+- `1`: procedimiento que actualiza un actor cuando gana un oscar
+- `2`: procedimiento para crear una pelicula
+- `3`: procedimiento para crear un actor pero que si o si debe haber trabajado en una pelicula
+
+### Triggers
+
+- `1`: trigger que actualiza la lista de las mejores 5 peliculas segun sus oscars
+- `2`: trigger que suma a una tabla los mejores actores de cada año

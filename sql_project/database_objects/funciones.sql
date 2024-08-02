@@ -49,7 +49,6 @@ BEGIN
     FROM ACTOR_ACTRIZ a
     JOIN ACTOR_PELICULA ap ON a.id_actor = ap.id_actor
     JOIN PELICULA p ON ap.id_pelicula = p.id_pelicula
-    -- aca uso el parametro de la funcion
     WHERE YEAR(p.estreno) = year
     GROUP BY a.id_actor
     ORDER BY cantidad_peliculas DESC
