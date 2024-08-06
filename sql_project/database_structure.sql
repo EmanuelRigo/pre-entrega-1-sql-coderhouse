@@ -69,18 +69,6 @@ CREATE TABLE
 	);
 
 
--- TABLA DE HECHOS 
--- TABLA PREMIOS DE UNA PELICULA 
-
-CREATE TABLE Fact_Premios (
-    id_fact_premio INT PRIMARY KEY AUTO_INCREMENT,
-    id_pelicula INT,
-    id_premio INT,
-    fecha DATE,
-    tipo_premio ENUM("mejor_pelicula", "mejor_director", "mejor_actor", "mejor_actriz"),
-    FOREIGN KEY (id_pelicula) REFERENCES PELICULA(id_pelicula),
-    FOREIGN KEY (id_premio) REFERENCES OSCAR(id_oscar)
-);
 
 -- TABLA DIRECTOR_PELICULA para relacion muchos a muchos entre DIRECTOR y PELICULA
 CREATE TABLE DIRECTOR_PELICULA (
@@ -101,23 +89,25 @@ CREATE TABLE ACTOR_PELICULA (
 );
 
 
--- -- TABLA MEJORES_ACTORES
--- CREATE TABLE MEJORES_ACTORES (
---     id_actor INT PRIMARY KEY,
---     nombre VARCHAR(50) NOT NULL,
---     apellido VARCHAR(100) NOT NULL,
---     nacimiento DATETIME,
---     id_pelicula INT NOT NULL,
---     id_oscar INT NOT NULL,
---     fecha_de_oscar DATETIME,
---     FOREIGN KEY (id_actor) REFERENCES ACTOR_ACTRIZ (id_actor),
---     FOREIGN KEY (id_pelicula) REFERENCES PELICULA (id_pelicula)
--- );
-
 CREATE TABLE TOP_5_PELICULAS (
     id_pelicula INT PRIMARY KEY,
     total_premios INT
 );
+
+
+-- TABLA DE HECHOS 
+-- TABLA PREMIOS DE UNA PELICULA 
+
+CREATE TABLE Fact_Premios (
+    id_fact_premio INT PRIMARY KEY AUTO_INCREMENT,
+    id_pelicula INT,
+    id_premio INT,
+    fecha DATE,
+    tipo_premio ENUM("mejor_pelicula", "mejor_director", "mejor_actor", "mejor_actriz"),
+    FOREIGN KEY (id_pelicula) REFERENCES PELICULA(id_pelicula),
+    FOREIGN KEY (id_premio) REFERENCES OSCAR(id_oscar)
+);
+
 
 ALTER TABLE PELICULA
 	ADD CONSTRAINT fk_pelicula_oscar FOREIGN KEY 
