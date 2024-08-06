@@ -89,7 +89,7 @@ Las relaciones entre las tablas se establecen mediante claves foráneas (Foreign
 - `1`: Crear la estructura con database_structure.sql
 - `2`: Agregar el contenido de la carpeta database_objects, donde se encuentran las funciones, stored_procedures, triggers y vistas
 
-- `3`: Traer datos de los paises desde el csv, skipeando (nom, iso2 y phone_code) que no se utilizaran
+- `3`: Traer datos en la tabla pais, desde el archivo csv paises, skipeando (nom, iso2 y phone_code) que no se utilizaran
 
 - `4`: Luego ingresar uno por uno a traves de queries en este orden las cuales estan en population.sql. pelicula -> actores -> director -> oscars
 
