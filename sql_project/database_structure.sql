@@ -68,6 +68,20 @@ CREATE TABLE
 		continente VARCHAR (50)
 	);
 
+
+-- TABLA DE HECHOS 
+-- TABLA PREMIOS DE UNA PELICULA 
+
+CREATE TABLE Fact_Premios (
+    id_fact_premio INT PRIMARY KEY AUTO_INCREMENT,
+    id_pelicula INT,
+    id_premio INT,
+    fecha DATE,
+    tipo_premio ENUM("mejor_pelicula", "mejor_director", "mejor_actor", "mejor_actriz"),
+    FOREIGN KEY (id_pelicula) REFERENCES PELICULA(id_pelicula),
+    FOREIGN KEY (id_premio) REFERENCES OSCAR(id_oscar)
+);
+
 -- TABLA DIRECTOR_PELICULA para relacion muchos a muchos entre DIRECTOR y PELICULA
 CREATE TABLE DIRECTOR_PELICULA (
     id_director INT,
@@ -124,20 +138,15 @@ ALTER TABLE DIRECTOR
     ADD CONSTRAINT fk_dire_oscar FOREIGN KEY
     (id_oscar) REFERENCES OSCAR (id_oscar);
 
-ALTER TABLE DIRECTOR_PELICULA 
-    ADD CONSTRAINT fk_dir FOREIGN KEY
-    (id_director) REFERENCES DIRECTOR (id_director),
-    ADD CONSTRAINT fk_pel FOREIGN KEY 
-    (id_pelicula) REFERENCES PELICULA (id_pelicula);
 
-ALTER TABLE ACTOR_PELICULA
-    ADD CONSTRAINT fk_act FOREIGN KEY
-    (id_actor) REFERENCES ACTOR_ACTRIZ (id_actor),
-    ADD CONSTRAINT fk_peli FOREIGN KEY 
+ALTER TABLE TOP_5_PELICULAS
+    ADD CONSTRAINT id_pelicula FOREIGN KEY 
     (id_pelicula) REFERENCES PELICULA (id_pelicula);
 
 ALTER TABLE TOP_5_PELICULAS ADD COLUMN nombre_pelicula VARCHAR(255);
 
+
+DROP USER IF EXISTS 'emanuel_rigo'@'%';
 
 CREATE USER 'emanuel_rigo'@'%' IDENTIFIED BY 'emanuel1234'
 FAILED_LOGIN_ATTEMPTS 3 PASSWORD_LOCK_TIME 1;
