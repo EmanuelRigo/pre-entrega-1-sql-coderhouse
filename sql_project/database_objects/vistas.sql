@@ -33,7 +33,7 @@ SELECT * FROM view_peliculas_con_mas_oscars;
 
 -- vista de peliculas por pais
 
-CREATE OR REPLACE VIEW peliculas_por_pais AS
+CREATE OR REPLACE VIEW view_peliculas_por_pais AS
     SELECT p.cod_pais, COUNT(p.id_pelicula) AS total_peliculas
     FROM PELICULA p
     GROUP BY p.cod_pais
