@@ -1,14 +1,21 @@
 -- USAMOS LA DB
 USE peliculas_coderhouse;
 
--- SET GLOBAL local_infile = true;
+SET GLOBAL local_infile = 1;
 
--- LOAD DATA  LOCAL INFILE '/sql_project/data/paises.csv'
--- INTO TABLE pais
--- FIELDS TERMINATED BY ','  ENCLOSED BY '"'
--- LINES TERMINATED BY '\n'
--- IGNORE 1 ROWS
--- (nombre,name,cod_pais,continente);
+LOAD DATA LOCAL INFILE '/sql_project/data/paises.csv'
+INTO TABLE pais
+FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(nombre, name, cod_pais, continente);
+
+SHOW GLOBAL VARIABLES LIKE 'local_infile';
+
+SELECT * FROM pais;
+
+
+
 
 INSERT INTO ESTUDIO (nombre, inicio_de_actividades, vigente) VALUES
 ('Universal Pictures', '1912-08-08', TRUE),

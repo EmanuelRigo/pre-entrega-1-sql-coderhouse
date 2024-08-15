@@ -38,5 +38,3 @@ CREATE OR REPLACE VIEW view_peliculas_por_pais AS
     FROM PELICULA p
     GROUP BY p.cod_pais
     ORDER BY total_peliculas DESC;
-
- SELECT * FROM peliculas_por_pais; 
